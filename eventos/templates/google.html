@@ -1,0 +1,23 @@
+{% extends "floppyforms/gis/google.html" %}
+
+{% block options %}{{ block.super }}
+
+
+options['base_layer'] = new OpenLayers.Layer.Google("Google Streets",
+                                                    {numZoomLevels: 20,
+                                                     units: 'm'});
+	options['default_lon'] = {{ lon }};
+	options['default_lat'] = {{ lat }};
+	options['default_zoom'] = 13
+{% endblock %}
+
+
+{% block map_options %}
+        var map_options = {
+		is_point: 1,
+		center: new google.maps.LatLng(-29.684167,-53.806944),
+		zoom: 12,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+{% endblock %}
+

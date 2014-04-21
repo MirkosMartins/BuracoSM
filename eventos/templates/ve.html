@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{{ form.media }}
+
+<div class='row'>
+
+<div class='col-md-2'></div>
+
+<div class='col-md-8'>
+	<form class='form' method='post' action='{% url "novo" %}' enctype="multipart/form-data">
+		<table> {% csrf_token %}
+			{{ form }}
+		</table>
+
+	<input class='btn btn-primary'  type='submit' value='Enviar Buraco' />
+	</form>
+</div>
+
+<div class='col-md-2'></div>
+
+</div>
+{% endblock %}
